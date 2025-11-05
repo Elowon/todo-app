@@ -1,4 +1,4 @@
-// src/screens/TodoScreen.tsx
+
 import bgLight from "../../assets/bg-light.jpg";
 import bgDark from "../../assets/bg-dark.jpg";
 
@@ -14,7 +14,7 @@ import DraggableFlatList, {
   RenderItemParams,
 } from "react-native-draggable-flatlist";
 
-/* ====== STYLES ====== */
+
 const Screen = styled(SafeAreaView)`
   flex: 1;
   background-color: ${(p: any) => p.theme.colors.background};
@@ -170,7 +170,7 @@ const FilterText = styled.Text<{ active?: boolean }>`
   font-size: 14px;
 `;
 
-/* ====== COMPONENT ====== */
+
 type Item = { id: string; text: string; completed: boolean };
 const STORAGE_KEY = "TODOS_V1";
 
@@ -260,7 +260,7 @@ export default function TodoScreen() {
             </AddButton>
           </InputContainer>
 
-          {/* Draggable when filter === 'all', otherwise regular FlatList */}
+          
           {filter === "all" ? (
             <DraggableFlatList
               data={todos}
@@ -271,7 +271,7 @@ export default function TodoScreen() {
                 drag,
               }: RenderItemParams<Item>) => (
                 <Row
-                  // visual hint: slightly dim completed items
+                 
                   style={{ opacity: item.completed ? 0.8 : 1 }}
                 >
                   <LeftRow>
@@ -310,7 +310,7 @@ export default function TodoScreen() {
               renderItem={({ item }) => (
                 <Row>
                   <LeftRow>
-                    {/* show handle but not draggable in filtered view */}
+                   
                     <HandleTouchable disabled>
                       <MaterialIcons
                         name="drag-handle"
@@ -337,14 +337,14 @@ export default function TodoScreen() {
             />
           )}
 
-          {/* FOOTER */}
+          
           <FilterRow>
             <FilterText>{itemsLeft} items left</FilterText>
             <FilterText onPress={clearCompleted}>Clear Completed</FilterText>
           </FilterRow>
         </TodoBox>
 
-        {/* FILTER BUTTONS BELOW BOX */}
+        
         <FilterGroup
           style={{
             borderWidth: 1.5,
